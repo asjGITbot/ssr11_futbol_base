@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>SSR11 | Música que juega contigo</title>
+  <meta name="description" content="SSR11 - Música que juega contigo. Escúchanos en Spotify, YouTube, Apple Music y síguenos en Facebook, TikTok e Instagram.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="SSR11 | Música que juega contigo">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="img/web.png">
+
+  <!-- =====================================================
+       LINKS: pega aquí tus enlaces de cada red social.
+       ===================================================== -->
+  <script>
+    const links = {
+      spotify:   "https://open.spotify.com/intl-es/artist/1fLcb04SZhkDOzlbqSeGYN",
+      youtube:   "https://www.youtube.com/@SSR11fuútbolbase",
+      facebook:  "https://www.facebook.com/SSR11FutbolBase",
+      tiktok:    "https://www.tiktok.com/@ssr11futbolbase",
+      instagram: "https://www.instagram.com/ssr11futbolbase/",
+      apple:     "https://music.apple.com/us/artist/ssr11-fútbol-base/6782267748"
+    };
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; background: #0a0a0a; }
+    body { display: grid; place-items: center; overflow: hidden; }
+
+    /* Escenario: mantiene la proporción exacta de la imagen
+       y se ajusta a la pantalla sin recortar nada. */
+    .stage {
+      --w: 1920; --h: 1080; --r: .009;
+      --sw: min(100vw, calc(100dvh * var(--w) / var(--h)));
+      position: relative;
+      width: var(--sw);
+      aspect-ratio: var(--w) / var(--h);
+    }
+    .stage img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+
+    /* Botones invisibles sobre los de la imagen */
+    .btn {
+      position: absolute;
+      display: block;
+      border-radius: calc(var(--sw) * var(--r));
+      -webkit-tap-highlight-color: transparent;
+      transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+    }
+    .btn:hover, .btn:focus-visible {
+      transform: scale(1.05);
+      background-color: rgba(255,255,255,.07);
+      box-shadow: 0 0 calc(var(--sw) * .016) var(--glow);
+    }
+    .btn:active { transform: scale(.98); }
+    .btn:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+
+    .spotify   { --glow: #1ed760; }
+    .youtube   { --glow: #ff2a2a; }
+    .facebook  { --glow: #2a7bff; }
+    .tiktok    { --glow: #25f4ee; }
+    .instagram { --glow: #d43cff; }
+    .apple     { --glow: #ff3c7d; }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap;
+    }
+
+    /* ---------- WEB (1920x1080) ---------- */
+    .spotify{left:2.917%;top:81.852%;width:15.208%;height:9.907%}
+      .youtube{left:18.438%;top:82.315%;width:15.365%;height:9.907%}
+      .facebook{left:33.958%;top:82.222%;width:15.833%;height:10.000%}
+      .tiktok{left:50.052%;top:82.222%;width:15.156%;height:9.630%}
+      .instagram{left:65.625%;top:82.407%;width:15.677%;height:10.093%}
+      .apple{left:81.146%;top:82.315%;width:15.625%;height:9.907%}
+
+    /* ---------- TABLET (1024x768): 601px a 1100px ---------- */
+    @media (max-width: 1100px) {
+      .stage { --w: 1024; --h: 768; --r: .014; }
+      .spotify{left:26.855%;top:75.130%;width:16.992%;height:8.203%}
+      .youtube{left:44.141%;top:75.521%;width:17.188%;height:8.203%}
+      .facebook{left:61.621%;top:75.391%;width:17.578%;height:8.333%}
+      .tiktok{left:27.246%;top:85.417%;width:16.797%;height:8.073%}
+      .instagram{left:44.629%;top:85.547%;width:17.188%;height:8.464%}
+      .apple{left:61.914%;top:85.547%;width:17.480%;height:8.203%}
+    }
+
+    /* ---------- MÓVIL (390x844): hasta 600px ---------- */
+    @media (max-width: 600px) {
+      .stage { --w: 780; --h: 1688; --r: .03; }
+      .spotify{left:33.590%;top:39.988%;width:36.154%;height:6.161%}
+      .youtube{left:32.821%;top:46.623%;width:36.538%;height:6.102%}
+      .facebook{left:33.333%;top:53.199%;width:36.538%;height:6.220%}
+      .tiktok{left:32.692%;top:59.893%;width:36.026%;height:5.983%}
+      .instagram{left:32.564%;top:66.528%;width:37.179%;height:6.220%}
+      .apple{left:31.410%;top:73.104%;width:37.179%;height:6.043%}
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main class="stage">
+    <h1 class="sr-only">SSR11 - Música que juega contigo</h1>
+
+    <!-- Cada tamaño de pantalla carga su propia imagen -->
+    <picture>
+      <source media="(max-width: 600px)"  srcset="img/movil.png">
+      <source media="(max-width: 1100px)" srcset="img/tablet.png">
+      <img src="img/web.png" alt="SSR11 - Música que juega contigo" draggable="false">
+    </picture>
+
+    <nav aria-label="Redes sociales">
+      <a class="btn spotify"   data-red="spotify"   aria-label="Escucha en Spotify"   target="_blank" rel="noopener noreferrer"></a>
+      <a class="btn youtube"   data-red="youtube"   aria-label="Ve en YouTube"        target="_blank" rel="noopener noreferrer"></a>
+      <a class="btn facebook"  data-red="facebook"  aria-label="Síguenos en Facebook" target="_blank" rel="noopener noreferrer"></a>
+      <a class="btn tiktok"    data-red="tiktok"    aria-label="Síguenos en TikTok"   target="_blank" rel="noopener noreferrer"></a>
+      <a class="btn instagram" data-red="instagram" aria-label="Síguenos en Instagram" target="_blank" rel="noopener noreferrer"></a>
+      <a class="btn apple"     data-red="apple"     aria-label="Escucha en Apple Music" target="_blank" rel="noopener noreferrer"></a>
+    </nav>
+  </main>
+
+  <script>
+    // Asigna a cada botón el enlace definido en la variable "links"
+    document.querySelectorAll("[data-red]").forEach(function (a) {
+      a.href = links[a.dataset.red] || "#";
+    });
+  </script>
+</body>
+</html>
