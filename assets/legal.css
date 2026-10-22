@@ -1,0 +1,39 @@
+/* SSR11 legal navigation and policy pages. Scope: legal-nav / policy-page only. */
+:root { color-scheme: dark; }
+.legal-nav { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:clamp(5px,.55vw,10px); }
+.legal-nav a { display:inline-flex; align-items:center; justify-content:center; min-height:36px; padding:8px 13px; border:1px solid #aeea21; border-radius:6px; background:rgba(7,12,8,.86); color:#f9ffe9; font:700 clamp(11px,.85vw,14px)/1.2 Arial,Helvetica,sans-serif; letter-spacing:.055em; text-decoration:none; white-space:nowrap; box-shadow:inset 0 0 0 1px rgba(168,239,42,.18),0 2px 12px rgba(0,0,0,.5); transition:background .18s,box-shadow .18s,transform .18s; }
+.legal-nav a:hover { background:rgba(43,66,7,.96); box-shadow:0 0 14px rgba(180,255,47,.52); transform:translateY(-1px); }
+.legal-nav a:focus-visible { outline:3px solid white; outline-offset:3px; }
+.legal-nav a[aria-current="page"] { border-color:#ffba31; color:#ffe5a2; }
+.legal-nav .home-link { border-color:#31dbff; color:#e0faff; box-shadow:inset 0 0 0 1px rgba(25,209,255,.2),0 2px 12px rgba(0,0,0,.5); }
+.legal-nav .home-link:hover { background:rgba(5,52,68,.96); box-shadow:0 0 16px rgba(47,211,255,.55); }
+.stage .legal-nav--overlay { position:absolute; z-index:5; top:2.5%; right:1.4%; flex-wrap:nowrap; }
+.stage .legal-nav--overlay a { min-height:clamp(23px,2.3vw,34px); padding:clamp(4px,.45vw,7px) clamp(7px,.65vw,13px); font-size:clamp(9px,.75vw,13px); }
+.policy-page { margin:0; min-height:100dvh; background-color:#080607; background-image:linear-gradient(180deg,rgba(14,2,3,.83),rgba(7,5,5,.91) 48%,rgba(6,6,7,.98)),url('../img/web.png'); background-position:center top; background-size:cover; color:#f5f0e7; font:16px/1.7 Arial,Helvetica,sans-serif; }
+.policy-page * { box-sizing:border-box; }
+.policy-page a { color:#ffca66; }
+.policy-page a:hover { color:#fff0cd; }
+.policy-page .skip-link { position:absolute; left:12px; top:-100px; background:#fff; color:#111; z-index:15; padding:12px; }
+.policy-page .skip-link:focus { top:12px; }
+.policy-header { max-width:1110px; margin:0 auto; padding:clamp(16px,3vw,32px) 22px 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:22px; }
+.policy-brand { color:#ffda82!important; text-decoration:none; font:bold italic clamp(28px,4vw,44px)/1 Impact,'Arial Black',Arial,sans-serif; letter-spacing:-.025em; text-shadow:3px 3px 0 #690a04,0 0 18px rgba(255,129,0,.75); }
+.policy-brand:focus-visible,.policy-page a:focus-visible { outline:3px solid white; outline-offset:3px; }
+.policy-main { width:min(900px,calc(100% - 32px)); margin:clamp(32px,6vw,80px) auto 40px; }
+.policy-panel { background:rgba(12,9,10,.93); border:1px solid rgba(255,163,39,.5); border-top:5px solid #f05c1a; border-radius:14px; padding:clamp(24px,5vw,56px); box-shadow:0 20px 70px rgba(0,0,0,.65),0 0 36px rgba(190,49,3,.12); backdrop-filter:blur(8px); }
+.policy-eyebrow { color:#ffb652; font-size:12px; font-weight:700; letter-spacing:.21em; text-transform:uppercase; }
+.policy-panel h1 { margin:10px 0 26px; font:bold clamp(32px,5vw,52px)/1.12 Arial,Helvetica,sans-serif; letter-spacing:-.035em; color:white; }
+.policy-panel h2 { margin:28px 0 8px; color:#ffcf83; font-size:clamp(18px,2.8vw,23px); line-height:1.3; }
+.policy-panel p { margin:10px 0 16px; color:#e0d5cb; max-width:70ch; }
+.policy-panel a { overflow-wrap:anywhere; }
+.policy-footer { max-width:900px; margin:0 auto; padding:0 20px 32px; text-align:center; font-size:12px; color:#bbaea3; }
+@media(max-width:1100px) { .policy-page { background-image:linear-gradient(180deg,rgba(14,2,3,.88),rgba(7,5,5,.94) 50%,#070607),url('../img/tablet.png'); } }
+@media(max-width:600px) {
+  .stage .legal-nav--overlay { top:1.3%; right:2%; left:2%; gap:4px; }
+  .stage .legal-nav--overlay a { min-height:32px; padding:5px 8px; font-size:10px; letter-spacing:0; }
+  .policy-page { background-image:linear-gradient(180deg,rgba(13,2,4,.88),rgba(7,5,5,.96) 50%,#070607),url('../img/movil.png'); background-position:center top; }
+  .policy-header { padding:20px 16px 0; gap:18px; }
+  .policy-header .legal-nav { justify-content:flex-start; gap:6px; }
+  .policy-header .legal-nav a { min-height:40px; padding:9px 10px; font-size:11px; }
+  .policy-main { margin:26px auto 28px; }
+}
+@media(prefers-reduced-motion:reduce) { .legal-nav a { transition:none; } }
