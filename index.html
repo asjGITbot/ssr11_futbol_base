@@ -4,10 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>SSR11 | Música que juega contigo</title>
-  <meta name="description" content="SSR11 - Música que juega contigo. Escúchanos en Spotify, YouTube, Apple Music y síguenos en Facebook, TikTok e Instagram.">
+  <meta name="description" content="Sitio oficial de SSR11 Fútbol Base: música original, videos y fútbol. Explora el proyecto, redes sociales y políticas de ECHO PUBLISHER para publicación autorizada.">
   <meta name="theme-color" content="#0a0a0a">
   <meta property="og:title" content="SSR11 | Música que juega contigo">
   <meta property="og:type" content="website">
+  <meta property="og:description" content="SSR11 Fútbol Base — música, videos, fútbol y contenido creativo. Conoce el proyecto y sus políticas.">
+  <meta property="og:url" content="https://ssr11futbolbase.bbvai.org/">
+  <link rel="canonical" href="https://ssr11futbolbase.bbvai.org/">
   <meta property="og:image" content="img/web.png">
 
   <!-- =====================================================
@@ -23,6 +26,8 @@
       apple:     "https://music.apple.com/us/artist/ssr11-fútbol-base/6782267748"
     };
   </script>
+
+  <link rel="stylesheet" href="assets/legal.css">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -98,14 +103,48 @@
       .apple{left:31.410%;top:73.104%;width:37.179%;height:6.043%}
     }
 
+    /* Public project information makes the site more than an image-only landing page. */
+    html, body { height: auto; min-height: 100%; }
+    body { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; overflow-x:hidden; overflow-y:auto; color:#f3ebe4; font-family:Arial,Helvetica,sans-serif; }
+    .stage { flex:0 0 auto; }
+    .site-skip { position:absolute; z-index:15; top:-100px; left:12px; background:#fff; color:#111; padding:10px 14px; }
+    .site-skip:focus { top:12px; }
+    .site-overview { width:100%; background:linear-gradient(180deg,#100607 0%,#180905 45%,#070708 100%); border-top:1px solid rgba(255,160,40,.45); }
+    .site-inner { max-width:1100px; margin:0 auto; padding:clamp(36px,6vw,72px) 22px 58px; }
+    .site-label { display:inline-block; color:#ffbc58; font-size:12px; font-weight:700; letter-spacing:.19em; text-transform:uppercase; }
+    .site-inner h2 { margin:12px 0 16px; color:#fff; font-size:clamp(28px,4.5vw,45px); line-height:1.12; }
+    .site-inner h3 { margin:0 0 12px; color:#ffcd7d; font-size:clamp(18px,2.2vw,22px); }
+    .site-inner p { max-width:80ch; color:#e0d7d0; line-height:1.75; font-size:clamp(15px,1.25vw,17px); }
+    .site-intro { margin:0 0 32px; }
+    .site-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; margin:26px 0 35px; }
+    .site-card { border:1px solid #79411d; border-top:3px solid #f18528; border-radius:12px; background:rgba(16,14,15,.8); padding:24px; }
+    .site-card p { font-size:15px; margin:0; }
+    .site-links { display:flex; gap:12px; flex-wrap:wrap; margin:18px 0 30px; }
+    .site-links a { border:1px solid #ae7c43; color:#ffe0af; background:#25140b; border-radius:6px; text-decoration:none; padding:11px 15px; font-weight:700; font-size:14px; }
+    .site-links a:hover { color:white; border-color:#ffbb5f; background:#51200d; }
+    .site-links a:focus-visible,.site-footer a:focus-visible { outline:3px solid white; outline-offset:3px; }
+    .site-footer { width:100%; background:#070607; border-top:1px solid #4c2b1b; color:#d9cbc3; }
+    .site-footer-inner { max-width:1100px; margin:0 auto; padding:26px 22px 32px; display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    .site-footer p { margin:0; font-size:13px; line-height:1.7; }
+    .site-footer a { color:#ffdb9e; text-decoration:underline; text-underline-offset:3px; }
+    .footer-links { display:flex; flex-wrap:wrap; gap:16px; }
+    @media (max-width:740px) { .site-grid { grid-template-columns:1fr; } }
+
     @media (prefers-reduced-motion: reduce) {
       .btn { transition: none; }
     }
   </style>
 </head>
 <body>
-  <main class="stage">
+  <a class="site-skip" href="#project">Conocer el proyecto SSR11</a>
+  <section class="stage" aria-label="Portada de SSR11 Fútbol Base">
     <h1 class="sr-only">SSR11 - Música que juega contigo</h1>
+
+    <nav class="legal-nav legal-nav--overlay" aria-label="Páginas legales">
+      <a href="privacy/" aria-label="Privacy Policy">PRIVACY</a>
+      <a href="terms/" aria-label="Terms of Service">TERMS</a>
+      <a href="data-deletion/" aria-label="Data Deletion">DATA DELETION</a>
+    </nav>
 
     <!-- Cada tamaño de pantalla carga su propia imagen -->
     <picture>
@@ -122,7 +161,48 @@
       <a class="btn instagram" data-red="instagram" aria-label="Síguenos en Instagram" target="_blank" rel="noopener noreferrer"></a>
       <a class="btn apple"     data-red="apple"     aria-label="Escucha en Apple Music" target="_blank" rel="noopener noreferrer"></a>
     </nav>
+  </section>
+
+  <main class="site-overview" id="project">
+    <div class="site-inner">
+      <span class="site-label">Official website · SSR11 Fútbol Base</span>
+      <h2>SSR11 — Música que juega contigo</h2>
+      <p class="site-intro">SSR11 Fútbol Base es un proyecto creativo dedicado a la música, los videos y la cultura del fútbol. Esta es su web oficial: aquí puedes conocer el proyecto, descubrir sus canales públicos y consultar las políticas que rigen las herramientas de publicación de contenido asociadas.</p>
+      <div class="site-grid">
+        <article class="site-card"><h3>Música original</h3><p>Canciones y producciones inspiradas en el fútbol, la motivación y el estilo de vida. Escucha nuestros lanzamientos en Spotify y Apple Music.</p></article>
+        <article class="site-card"><h3>Fútbol y video</h3><p>Videos y contenido creativo relacionado con el fútbol base. Descubre el material publicado por SSR11 en YouTube, Instagram, Facebook y TikTok.</p></article>
+        <article class="site-card"><h3>Publicación autorizada</h3><p>ECHO PUBLISHER es el servicio de gestión de publicaciones asociado al proyecto. Su integración con TikTok utiliza las autorizaciones de los titulares de las cuentas para preparar y publicar contenido aprobado.</p></article>
+      </div>
+      <h3>Canales oficiales / Official channels</h3>
+      <p>Accede a las cuentas públicas de SSR11. Estos enlaces corresponden a los mismos destinos presentes en los botones de la portada.</p>
+      <nav class="site-links" aria-label="Enlaces oficiales de SSR11">
+        <a data-red="spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
+        <a data-red="youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a data-red="facebook" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a data-red="tiktok" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a data-red="instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a data-red="apple" target="_blank" rel="noopener noreferrer">Apple Music</a>
+      </nav>
+      <h3>Privacidad y transparencia / Privacy &amp; transparency</h3>
+      <p>Las conexiones y publicaciones de cuentas sociales se realizan mediante ECHO PUBLISHER y permisos autorizados por el titular de cada cuenta. Consulta la política de privacidad, los términos de servicio y las instrucciones para solicitar la eliminación de datos.</p>
+      <nav class="site-links" aria-label="Políticas para revisión de TikTok">
+        <a href="privacy/">Privacy Policy</a>
+        <a href="terms/">Terms of Service</a>
+        <a href="data-deletion/">Data Deletion</a>
+      </nav>
+      <p><strong>Publishing &amp; data requests:</strong> <a href="mailto:asilvajasaui@gmail.com" style="color:#ffd18c">asilvajasaui@gmail.com</a></p>
+    </div>
   </main>
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p>© SSR11 Fútbol Base · Música · Videos · Fútbol</p>
+      <nav class="footer-links" aria-label="Enlaces legales">
+        <a href="privacy/">Privacy Policy</a>
+        <a href="terms/">Terms of Service</a>
+        <a href="data-deletion/">Data Deletion</a>
+      </nav>
+    </div>
+  </footer>
 
   <script>
     // Asigna a cada botón el enlace definido en la variable "links"
