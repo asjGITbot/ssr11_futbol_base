@@ -1,84 +1,94 @@
-/* SSR11 Fútbol Base — shared responsive legal and about pages */
-:root{color-scheme:dark;--gold:#ffc16a;--muted:#e5dad1;--stroke:rgba(255,178,71,.68);--glow:rgba(255,123,13,.3)}
-.legal-nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px}
-.legal-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:39px;padding:9px 13px;border:1px solid #b4e923;border-radius:8px;background:rgba(9,12,9,.79);color:#fff5df;text-decoration:none;font:700 12px/1.2 Arial,Helvetica,sans-serif;letter-spacing:.035em;text-align:center;white-space:nowrap;transition:background-color .18s,box-shadow .18s,transform .18s}
-.legal-nav a:hover{background:rgba(50,65,9,.94);box-shadow:0 0 17px rgba(166,243,30,.3);transform:translateY(-1px)}
-.legal-nav a[aria-current="page"]{border-color:var(--gold);color:#ffe4a5;background:rgba(66,33,9,.75)}
-.legal-nav .home-link{border-color:#35ddf5;color:#e7fcff}
-.legal-nav .home-link:hover{background:rgba(8,48,57,.92);box-shadow:0 0 17px rgba(53,221,245,.27)}
-.legal-nav a:focus-visible,.brand-logo-link:focus-visible,.stage .about-entry:focus-visible{outline:3px solid white;outline-offset:3px}
-.stage .legal-nav--overlay{position:absolute;z-index:5;top:2.5%;right:1.4%;display:flex;flex-wrap:nowrap;gap:clamp(4px,.45vw,9px)}
-.stage .legal-nav--overlay a{min-height:clamp(24px,2.2vw,36px);padding:clamp(4px,.45vw,7px) clamp(7px,.65vw,12px);font-size:clamp(9px,.76vw,13px)}
-.stage .about-entry{position:absolute;z-index:6;top:2.5%;left:1.4%;display:inline-flex;align-items:center;justify-content:center;min-height:clamp(24px,2.2vw,36px);padding:clamp(4px,.45vw,7px) clamp(8px,.75vw,14px);border:1px solid var(--gold);border-radius:7px;color:#fff6e3;background:rgba(22,12,7,.86);font:700 clamp(9px,.76vw,13px)/1.2 Arial,Helvetica,sans-serif;text-decoration:none}
-.stage .about-entry:hover{background:rgba(85,33,9,.94);box-shadow:0 0 18px rgba(255,175,56,.3)}
-/* Background shines through panels without sacrificing text contrast */
-.policy-page{position:relative;margin:0;min-height:100vh;min-height:100dvh;overflow-x:hidden;background:#0d0708;background-image:linear-gradient(180deg,rgba(8,3,5,.4),rgba(9,5,6,.52) 42%,rgba(8,5,7,.68)),url('../img/web.png');background-size:cover;background-position:center top;background-repeat:no-repeat;background-attachment:fixed;color:#fff4e8;font:16px/1.75 Arial,Helvetica,sans-serif}
-.policy-page *{box-sizing:border-box}
-.policy-page::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 50% 5%,rgba(254,102,15,.14),transparent 64%)}
-.policy-page a{color:#ffdb8b;overflow-wrap:anywhere}
-.policy-page a:hover{color:#fff1c9}
-.policy-page a:focus-visible{outline:3px solid white;outline-offset:3px}
-.policy-page .skip-link{position:absolute;left:12px;top:-100px;z-index:30;background:#fff;color:#111;padding:11px 14px}
+/* SSR11 — wide glass layout; desktop first, mobile responsive */
+:root{color-scheme:dark;--gold:#ffd18b;--accent:#ff8e27;--body:#fff1e5;--outline:rgba(255,173,69,.68)}
+*{box-sizing:border-box}
+.policy-page{margin:0;min-height:100vh;min-height:100dvh;overflow-x:hidden;color:var(--body);font:16px/1.7 Arial,Helvetica,sans-serif;background-color:#100608;background-image:linear-gradient(180deg,rgba(8,2,4,.13),rgba(8,4,6,.20) 60%,rgba(8,4,6,.32)),url('../img/web.png');background-repeat:no-repeat;background-size:cover;background-position:center top;background-attachment:fixed}
+.policy-page::before{content:none}
+.policy-page a{color:var(--gold);overflow-wrap:anywhere}
+.policy-page a:hover{color:#fff7de}
+.policy-page a:focus-visible,.stage a:focus-visible{outline:3px solid white;outline-offset:3px}
+.policy-page .skip-link{position:absolute;left:12px;top:-100px;z-index:90;padding:12px;background:white;color:black}
 .policy-page .skip-link:focus{top:12px}
-.policy-header{position:relative;z-index:2;max-width:1180px;margin:0 auto;padding:18px 24px 0;display:grid;grid-template-columns:minmax(115px,170px) 1fr;gap:16px;align-items:center}
-.brand-logo-link{display:inline-flex;align-items:center;justify-content:flex-start;min-width:0}
-.brand-logo{display:block;width:clamp(112px,13vw,166px);height:auto;max-width:100%;object-fit:contain;filter:drop-shadow(0 3px 12px rgba(248,137,39,.37))}
-.policy-main{position:relative;z-index:1;width:min(100%,1060px);margin:clamp(24px,4vw,48px) auto 36px;padding:0 20px}
-.policy-panel{background:rgba(12,9,12,.67);border:1px solid var(--stroke);border-top:3px solid rgba(255,155,40,.82);border-radius:18px;padding:clamp(24px,4.5vw,52px);box-shadow:0 18px 68px rgba(0,0,0,.42),inset 0 1px 0 rgba(255,211,151,.08);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
-.policy-eyebrow{display:block;color:#ffcc75;font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
-.policy-panel h1{margin:12px 0 24px;color:white;font:bold clamp(30px,4.2vw,48px)/1.13 Arial,Helvetica,sans-serif;letter-spacing:-.02em}
-.policy-panel h2{margin:30px 0 9px;color:#ffd08e;font:bold clamp(18px,2.3vw,23px)/1.35 Arial,Helvetica,sans-serif}
-.policy-panel p{margin:10px 0 16px;max-width:76ch;color:var(--muted);font-size:clamp(14px,1.4vw,16px);line-height:1.8}
-.policy-panel .policy-context{margin:17px 0 28px;padding:15px 19px;border-left:3px solid #ffb64d;border-radius:0 9px 9px 0;background:rgba(119,47,10,.26);color:#f6e9d8}
-.policy-footer{position:relative;z-index:1;max-width:1060px;margin:0 auto;padding:0 20px 32px;text-align:center;color:#dfd0c0;font-size:12px}
-.about-page .policy-main{max-width:1110px}
-.about-content .about-lead{font-size:clamp(17px,2vw,21px);color:#fff0db;line-height:1.7}
-.about-content h2{margin-top:34px}
-.about-content .about-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:23px 0 30px}
-.about-content .about-card{min-width:0;padding:20px;border:1px solid rgba(255,179,66,.4);border-radius:13px;background:rgba(100,43,12,.24);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
-.about-content .about-card h3{margin:0 0 12px;color:#ffdd9d;font-size:18px}
-.about-content .about-card p{margin:0;font-size:14px;line-height:1.7}
-.about-content .about-socials{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 28px}
-.about-content .about-socials a{display:inline-flex;justify-content:center;align-items:center;min-height:42px;padding:10px 14px;border:1px solid rgba(255,184,78,.6);border-radius:8px;background:rgba(66,32,10,.58);color:#ffe2b4;font-size:14px;font-weight:700;text-decoration:none}
-.about-content .about-socials a:hover{background:rgba(121,51,11,.85)}
-@media(max-width:1100px){
- .policy-page{background-image:linear-gradient(180deg,rgba(8,3,5,.4),rgba(9,5,6,.56) 45%,rgba(8,5,7,.72)),url('../img/tablet.png')}
- .policy-header{grid-template-columns:minmax(100px,145px) minmax(0,1fr);padding:16px 18px 0}
+.policy-header{position:relative;z-index:5;width:min(96%,1550px);margin:0 auto;padding:12px 22px 0;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand-logo-link{display:flex;align-items:center;flex:0 0 auto;text-decoration:none}
+.brand-logo{display:block;width:clamp(162px,14vw,225px);height:auto;max-height:125px;object-fit:contain;filter:drop-shadow(0 3px 13px rgba(255,115,16,.4))}
+.legal-nav{display:flex;justify-content:flex-end;align-items:center;flex-wrap:wrap;gap:10px}
+.legal-nav a{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:9px 14px;border:1px solid #a7e52c;border-radius:8px;background:rgba(7,13,8,.66);color:#fff4de;text-decoration:none;font:700 12px/1.25 Arial,Helvetica,sans-serif;letter-spacing:.015em;text-align:center;transition:background-color .2s,transform .2s,box-shadow .2s}
+.legal-nav a:hover{background:rgba(31,58,10,.88);transform:translateY(-1px);box-shadow:0 0 14px rgba(158,230,42,.2)}
+.legal-nav a[aria-current="page"]{color:#fff1c5;border-color:var(--gold);background:rgba(95,51,17,.59)}
+.legal-nav .home-link{border-color:#24dcf5;color:#eafcff}
+.policy-main{position:relative;z-index:1;width:min(96%,1510px);margin:clamp(12px,2vw,26px) auto 32px;padding:0}
+.policy-panel{width:100%;padding:clamp(28px,3.2vw,48px);background:rgba(9,5,8,.34);border:1px solid var(--outline);border-top:3px solid #ff9e36;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.23);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.policy-eyebrow{display:block;color:#ffcf80;font:800 12px/1.4 Arial,Helvetica,sans-serif;letter-spacing:.17em;text-transform:uppercase}
+.policy-panel h1{margin:12px 0 22px;color:#fff;font-size:clamp(31px,3.5vw,54px);line-height:1.1;letter-spacing:-.025em}
+.policy-panel h2{margin:0 0 10px;color:#ffce84;font-size:clamp(17px,1.6vw,22px);line-height:1.25}
+.policy-panel h3{margin:0 0 9px;color:#ffdfae;font-size:18px}
+.policy-panel p{margin:0 0 15px;max-width:none;color:#f1e8df;font-size:clamp(14px,1.05vw,16px);line-height:1.75}
+.policy-panel .policy-context{max-width:none;margin:18px 0 24px;padding:14px 18px;border-left:3px solid #ffbc63;border-radius:0 9px 9px 0;background:rgba(86,39,13,.30);color:#fff1e6}
+.policy-panel.legal-content .policy-context{margin-top:8px}
+.legal-content .legal-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 22px;align-items:stretch;margin-top:18px}
+.legal-section{min-width:0;padding:22px 24px;border:1px solid rgba(255,182,98,.32);border-radius:12px;background:rgba(24,11,8,.30)}
+.legal-section p:last-child{margin-bottom:0}
+.legal-section p{font-size:15px}
+.legal-section--wide{grid-column:1/-1}
+.policy-footer{position:relative;z-index:1;max-width:1500px;margin:0 auto;padding:0 20px 28px;text-align:center;color:#e1d7ca;font-size:12px}
+.about-content .about-lead{font-size:clamp(17px,1.5vw,21px);max-width:94ch;font-weight:500;color:#fff5e8}
+.about-content .about-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:20px 0 30px}
+.about-content .about-card{min-width:0;padding:22px;background:rgba(83,36,9,.31);border:1px solid rgba(255,190,91,.42);border-radius:12px}
+.about-content .about-card p{font-size:15px;line-height:1.65;margin:0}
+.about-content>h2{margin:32px 0 10px}
+.about-content .about-sections{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 24px;margin-top:24px}
+.about-section{min-width:0;padding:22px 24px;background:rgba(46,17,10,.30);border:1px solid rgba(255,180,75,.35);border-radius:12px}
+.about-section h2{margin:0 0 12px}
+.about-section p:last-child{margin-bottom:0}
+.about-section--wide{grid-column:1/-1}
+.about-content .about-socials{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+.about-content .about-socials a{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:10px 15px;border:1px solid rgba(255,190,90,.64);border-radius:8px;background:rgba(69,30,11,.5);color:#ffe1a8;font-size:14px;font-weight:700;text-decoration:none}
+.about-content .about-socials a:hover{background:rgba(105,39,8,.83)}
+.stage .legal-nav--overlay{position:absolute;z-index:5;top:2.5%;right:1.4%;flex-wrap:nowrap;gap:clamp(4px,.5vw,9px)}
+.stage .legal-nav--overlay a{min-height:clamp(23px,2.3vw,34px);padding:clamp(4px,.45vw,7px) clamp(7px,.65vw,13px);font-size:clamp(9px,.75vw,13px)}
+.stage .about-entry{position:absolute;z-index:6;top:2.5%;left:1.4%;display:inline-flex;align-items:center;justify-content:center;min-height:clamp(23px,2.3vw,34px);padding:clamp(4px,.45vw,7px) clamp(8px,.75vw,14px);border:1px solid #ffc56b;border-radius:7px;background:rgba(24,12,8,.8);color:#fff4df;text-decoration:none;font:700 clamp(9px,.75vw,13px)/1.2 Arial,Helvetica,sans-serif}
+@media(max-width:1050px){
+ .policy-page{background-image:linear-gradient(180deg,rgba(8,2,4,.2),rgba(8,4,6,.26) 65%,rgba(8,4,6,.35)),url('../img/tablet.png')}
+ .policy-header{width:min(97%,1100px);padding:12px 14px 0;gap:14px}
+ .brand-logo{width:156px}
  .legal-nav{gap:6px}
- .legal-nav a{padding:8px 10px;font-size:11px}
+ .legal-nav a{font-size:11px;padding:8px 10px}
+ .policy-main{width:95%;margin:14px auto 28px}
+ .policy-panel{padding:30px}
+ .legal-section{padding:18px}
+ .about-content .about-grid{gap:12px}
 }
 @media(max-width:760px){
- .policy-header{display:flex;flex-direction:column;justify-content:center;gap:10px}
- .brand-logo-link{justify-content:center}
- .brand-logo{width:136px}
+ .policy-header{display:flex;flex-direction:column;align-items:center;gap:9px;padding:12px 12px 0}
+ .brand-logo{width:152px;max-height:none}
  .policy-header .legal-nav{width:100%;justify-content:center}
+ .policy-main{width:100%;padding:0 13px;margin:17px auto 25px}
+ .policy-panel{padding:25px 22px}
+ .legal-content .legal-grid,.about-content .about-sections{grid-template-columns:1fr;gap:12px}
+ .legal-section--wide,.about-section--wide{grid-column:auto}
  .about-content .about-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
- .policy-main{margin:18px auto 28px;padding:0 14px}
- .policy-panel{padding:clamp(22px,4.5vw,34px)}
 }
 @media(max-width:600px){
- .policy-page{background-image:linear-gradient(180deg,rgba(8,3,5,.37),rgba(9,5,6,.62) 45%,rgba(8,5,7,.76)),url('../img/movil.png');background-position:center top;background-size:cover;background-attachment:scroll}
- .policy-header{padding:14px 12px 0;gap:8px}
- .brand-logo{width:116px}
+ .policy-page{background-image:linear-gradient(180deg,rgba(8,2,4,.22),rgba(8,4,6,.33) 65%,rgba(8,4,6,.42)),url('../img/movil.png');background-position:center top;background-size:cover;background-attachment:scroll}
+ .policy-header{padding:10px 12px 0}
+ .brand-logo{width:135px}
  .policy-header .legal-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
- .policy-header .legal-nav a{min-width:0;width:100%;min-height:40px;padding:9px 7px;font-size:10.5px;white-space:normal;letter-spacing:0;overflow-wrap:anywhere}
+ .policy-header .legal-nav a{min-height:42px;font-size:11px;padding:8px 5px;white-space:normal;overflow-wrap:anywhere}
  .policy-header .legal-nav a:last-child:nth-child(odd){grid-column:1/-1}
- .policy-main{padding:0 11px;margin:18px auto 26px}
- .policy-panel{padding:23px 19px;border-radius:15px;background:rgba(12,9,12,.74);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
- .policy-panel h1{font-size:clamp(30px,8.2vw,39px)}
- .policy-panel h2{margin-top:27px}
- .policy-panel p{font-size:14px;line-height:1.72}
- .policy-panel .policy-context{font-size:13px;padding:13px 14px}
+ .policy-main{padding:0 10px;margin:15px auto 26px}
+ .policy-panel{padding:22px 18px;border-radius:14px;background:rgba(10,6,8,.48);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+ .policy-panel h1{font-size:clamp(30px,8vw,40px)}
+ .policy-panel p{font-size:14px;line-height:1.75}
+ .policy-panel .policy-context{font-size:13px;padding:13px}
+ .legal-section,.about-section{padding:16px}
+ .legal-section p,.about-section p{font-size:14px}
  .about-content .about-grid{grid-template-columns:1fr;gap:12px}
- .about-content .about-card{padding:18px}
+ .about-content .about-card{padding:16px}
  .about-content .about-socials{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
  .about-content .about-socials a{min-width:0;padding:9px 8px;font-size:12px}
  .stage .legal-nav--overlay{left:2%;right:2%;top:1.3%;justify-content:flex-end;gap:4px}
  .stage .legal-nav--overlay a{min-height:30px;padding:5px 6px;font-size:9px}
- .stage .about-entry{top:6.7%;left:2%;min-height:30px;font-size:9px;padding:5px 9px}
+ .stage .about-entry{top:6.7%;left:2%;font-size:9px;padding:5px 9px;min-height:30px}
 }
-@media(max-width:365px){
- .policy-header .legal-nav a{font-size:10px}
- .about-content .about-socials{grid-template-columns:1fr}
-}
-@media(prefers-reduced-motion:reduce){.legal-nav a{transition:none}.stage .about-entry{transition:none}}
+@media(max-width:350px){.about-content .about-socials{grid-template-columns:1fr}.policy-header .legal-nav a{font-size:10px}}
+@media(prefers-reduced-motion:reduce){.legal-nav a{transition:none}}
