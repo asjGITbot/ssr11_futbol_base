@@ -37,3 +37,6 @@
   .policy-main { margin:26px auto 28px; }
 }
 @media(prefers-reduced-motion:reduce) { .legal-nav a { transition:none; } }
+
+/* Visibly identify policy scope without changing ECHO's original legal text. */
+.policy-panel .policy-context { margin:18px 0 28px; padding:15px 18px; border-left:3px solid #ffae40; background:rgba(121,48,7,.22); color:#f5e5d1; }
