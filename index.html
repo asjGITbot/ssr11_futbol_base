@@ -24,6 +24,8 @@
     };
   </script>
 
+  <link rel="stylesheet" href="assets/legal.css">
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html, body { height: 100%; background: #0a0a0a; }
@@ -106,6 +108,12 @@
 <body>
   <main class="stage">
     <h1 class="sr-only">SSR11 - Música que juega contigo</h1>
+
+    <nav class="legal-nav legal-nav--overlay" aria-label="Páginas legales">
+      <a href="privacy/" aria-label="Privacy Policy">PRIVACY</a>
+      <a href="terms/" aria-label="Terms of Service">TERMS</a>
+      <a href="data-deletion/" aria-label="Data Deletion">DATA DELETION</a>
+    </nav>
 
     <!-- Cada tamaño de pantalla carga su propia imagen -->
     <picture>
