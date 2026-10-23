@@ -46,7 +46,7 @@
 .about-content .about-socials a:hover{background:rgba(105,39,8,.83)}
 .stage .legal-nav--overlay{position:absolute;z-index:5;top:2.5%;right:1.4%;flex-wrap:nowrap;gap:clamp(4px,.5vw,9px)}
 .stage .legal-nav--overlay a{min-height:clamp(23px,2.3vw,34px);padding:clamp(4px,.45vw,7px) clamp(7px,.65vw,13px);font-size:clamp(9px,.75vw,13px)}
-.stage .about-entry{position:absolute;z-index:6;top:2.5%;left:1.4%;display:inline-flex;align-items:center;justify-content:center;min-height:clamp(23px,2.3vw,34px);padding:clamp(4px,.45vw,7px) clamp(8px,.75vw,14px);border:1px solid #ffc56b;border-radius:7px;background:rgba(24,12,8,.8);color:#fff4df;text-decoration:none;font:700 clamp(9px,.75vw,13px)/1.2 Arial,Helvetica,sans-serif}
+
 @media(max-width:1050px){
  .policy-page{background-image:linear-gradient(180deg,rgba(8,2,4,.2),rgba(8,4,6,.26) 65%,rgba(8,4,6,.35)),url('../img/tablet.png')}
  .policy-header{width:min(97%,1100px);padding:12px 14px 0;gap:14px}
@@ -88,7 +88,119 @@
  .about-content .about-socials a{min-width:0;padding:9px 8px;font-size:12px}
  .stage .legal-nav--overlay{left:2%;right:2%;top:1.3%;justify-content:flex-end;gap:4px}
  .stage .legal-nav--overlay a{min-height:30px;padding:5px 6px;font-size:9px}
- .stage .about-entry{top:6.7%;left:2%;font-size:9px;padding:5px 9px;min-height:30px}
+ 
 }
 @media(max-width:350px){.about-content .about-socials{grid-template-columns:1fr}.policy-header .legal-nav a{font-size:10px}}
 @media(prefers-reduced-motion:reduce){.legal-nav a{transition:none}}
+
+/* Unified five-link navigation, October 2026.
+   All pages use the same labels, order, size and alignment.
+   Desktop: flush right. Small screens: responsive 3+2 right-aligned layout. */
+.legal-nav {
+  display:flex;
+  flex-flow:row wrap;
+  justify-content:flex-end;
+  align-items:center;
+  gap:clamp(6px,.6vw,11px);
+}
+.legal-nav a,
+.legal-nav .home-link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:39px;
+  min-width:0;
+  padding:9px clamp(10px,.95vw,15px);
+  border:1px solid #b6e632;
+  border-radius:8px;
+  background:rgba(11,14,9,.72);
+  color:#fff3de;
+  text-align:center;
+  text-transform:none;
+  text-decoration:none;
+  font:700 clamp(11px,.8vw,13px)/1.25 Arial,Helvetica,sans-serif;
+  letter-spacing:.015em;
+  white-space:nowrap;
+}
+.legal-nav a:hover,
+.legal-nav .home-link:hover {
+  background:rgba(48,55,12,.88);
+  box-shadow:0 0 15px rgba(181,232,49,.25);
+}
+.legal-nav a[aria-current="page"] {
+  border-color:#ffca78;
+  background:rgba(89,48,16,.70);
+  color:#fff6e9;
+}
+.policy-header .legal-nav {
+  flex:0 1 auto;
+  margin-left:auto;
+  justify-content:flex-end;
+}
+.stage .legal-nav--overlay {
+  position:absolute;
+  z-index:6;
+  right:1.5%;
+  left:auto;
+  top:2.5%;
+  width:max-content;
+  max-width:97%;
+  display:flex;
+  flex-wrap:nowrap;
+  justify-content:flex-end;
+  gap:clamp(4px,.55vw,10px);
+}
+.stage .legal-nav--overlay a {
+  flex:0 0 auto;
+  min-height:clamp(25px,2.3vw,37px);
+  padding:clamp(4px,.5vw,8px) clamp(7px,.8vw,13px);
+  font-size:clamp(9px,.77vw,13px);
+}
+@media(max-width:760px){
+  .policy-header .legal-nav {
+    width:100%;
+    margin-left:0;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    justify-content:end;
+    gap:7px;
+  }
+  .policy-header .legal-nav a {
+    min-width:0;
+    width:100%;
+    min-height:42px;
+    padding:9px 7px;
+    font-size:11px;
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+  .policy-header .legal-nav a:nth-child(4){grid-column:2}
+  .policy-header .legal-nav a:nth-child(5),
+  .policy-header .legal-nav a:last-child:nth-child(odd){grid-column:3 / 4}
+}
+@media(max-width:600px){
+  .stage .legal-nav--overlay {
+    position:absolute;
+    z-index:6;
+    top:1.1%;
+    left:2%;
+    right:2%;
+    width:auto;
+    max-width:none;
+    display:grid;
+    grid-template-columns:repeat(3,minmax(0,1fr));
+    gap:5px;
+    justify-content:end;
+  }
+  .stage .legal-nav--overlay a {
+    width:100%;
+    min-width:0;
+    min-height:33px;
+    padding:5px 4px;
+    font-size:clamp(9px,2.65vw,11px);
+    white-space:normal;
+    overflow-wrap:anywhere;
+  }
+  .stage .legal-nav--overlay a:nth-child(4){grid-column:2}
+  .stage .legal-nav--overlay a:nth-child(5){grid-column:3}
+}
