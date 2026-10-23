@@ -1,7 +1,7 @@
 /* SSR11 — wide glass layout; desktop first, mobile responsive */
 :root{color-scheme:dark;--gold:#ffd18b;--accent:#ff8e27;--body:#fff1e5;--outline:rgba(255,173,69,.68)}
 *{box-sizing:border-box}
-.policy-page{margin:0;min-height:100vh;min-height:100dvh;overflow-x:hidden;color:var(--body);font:16px/1.7 Arial,Helvetica,sans-serif;background-color:#100608;background-image:linear-gradient(180deg,rgba(8,2,4,.13),rgba(8,4,6,.20) 60%,rgba(8,4,6,.32)),url('../img/web.png');background-repeat:no-repeat;background-size:cover;background-position:center top;background-attachment:fixed}
+.policy-page{margin:0;min-height:100vh;min-height:100dvh;overflow-x:hidden;color:var(--body);font:16px/1.7 Arial,Helvetica,sans-serif;background-color:#100608;background-image:linear-gradient(180deg,rgba(8,2,4,.13),rgba(8,4,6,.20) 60%,rgba(8,4,6,.32)),url('../img/web.png');background-repeat:no-repeat;background-size:cover;background-position:center center;background-attachment:fixed}
 .policy-page::before{content:none}
 .policy-page a{color:var(--gold);overflow-wrap:anywhere}
 .policy-page a:hover{color:#fff7de}
@@ -69,7 +69,7 @@
  .about-content .about-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:600px){
- .policy-page{background-image:linear-gradient(180deg,rgba(8,2,4,.22),rgba(8,4,6,.33) 65%,rgba(8,4,6,.42)),url('../img/movil.png');background-position:center top;background-size:cover;background-attachment:scroll}
+ .policy-page{background-image:linear-gradient(180deg,rgba(8,2,4,.22),rgba(8,4,6,.33) 65%,rgba(8,4,6,.42)),url('../img/movil.png');background-position:center center;background-size:cover;background-attachment:scroll}
  .policy-header{padding:10px 12px 0}
  .brand-logo{width:135px}
  .policy-header .legal-nav{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
@@ -217,7 +217,7 @@ html{max-width:100%;overflow-x:hidden}
   .policy-page{min-height:100dvh;display:flex;flex-direction:column;align-items:stretch}
   .policy-header{width:min(calc(100% - 36px),1500px);padding:6px 10px 0;gap:12px}
   .brand-logo{width:clamp(130px,10vw,172px);max-height:98px}
-  .policy-main{width:min(calc(100% - 36px),1490px);padding:0;margin:12px auto 12px;flex:0 0 auto}
+  .policy-main{width:min(calc(100% - 36px),1490px);padding:0; margin:0 auto;flex:1 0 auto}
   .policy-panel{padding:clamp(18px,2.1vw,30px);border-radius:16px}
   .policy-eyebrow{font-size:10px;letter-spacing:.14em}
   .policy-panel h1{margin:7px 0 12px;font-size:clamp(30px,2.75vw,44px);line-height:1.08}
@@ -276,4 +276,30 @@ html{max-width:100%;overflow-x:hidden}
   .policy-main{width:100%;padding:0 12px}
   .legal-content>.legal-grid,.about-content .about-sections{grid-template-columns:1fr}
   .legal-section--wide,.about-section--wide{grid-column:auto}
+}
+
+/* SSR11 V7 — vertical centering across About / Privacy / Terms / Data Deletion.
+   The panel occupies the available viewport area without absolute positioning.
+   Long pages retain natural document flow and vertical scrolling. */
+.policy-page {
+  min-height:100vh;
+  min-height:100dvh;
+  display:flex;
+  flex-direction:column;
+  background-position:center center;
+}
+.policy-header,.policy-footer { flex:0 0 auto; }
+.policy-main {
+  flex:1 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:0;
+  margin-bottom:0;
+  padding-top:clamp(18px,3vw,40px);
+  padding-bottom:clamp(18px,3vw,40px);
+}
+.policy-main > .policy-panel { flex:0 0 auto; }
+@media(max-width:760px){
+  .policy-main { padding-top:18px; padding-bottom:20px; }
 }
