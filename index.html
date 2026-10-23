@@ -34,8 +34,8 @@
     html, body { height: 100%; background: #0a0a0a; }
     body { display: grid; place-items: center; overflow: hidden; }
 
-    /* Escenario: mantiene la proporción exacta de la imagen
-       y se ajusta a la pantalla sin recortar nada. */
+    /* Escenario adaptable: la portada ocupa todo el ancho en escritorio;
+       tablets y móviles conservan la imagen específica y sus puntos interactivos. */
     .stage {
       --w: 1920; --h: 1080; --r: .009;
       --sw: min(100vw, calc(100dvh * var(--w) / var(--h)));
@@ -44,6 +44,14 @@
       aspect-ratio: var(--w) / var(--h);
     }
     .stage img { display: block; width: 100%; height: 100%; user-select: none; -webkit-user-drag: none; }
+
+    /* Elimina las bandas laterales del desktop cuando la relación de pantalla
+       difiere de 16:9. Los hotspots siguen ajustados a la misma superficie. */
+    @media (min-width: 1101px) {
+      .stage { --sw: 100vw; width: 100%; height: 100dvh; aspect-ratio: auto; }
+      .stage picture { display: block; width: 100%; height: 100%; }
+      .stage picture img { width: 100%; height: 100%; object-fit: fill; }
+    }
 
     /* Botones invisibles sobre los de la imagen */
     .btn {
@@ -106,7 +114,7 @@
     /* Public project information makes the site more than an image-only landing page. */
     html, body { height: auto; min-height: 100%; }
     body { display:flex; flex-direction:column; align-items:center; justify-content:flex-start; overflow-x:hidden; overflow-y:auto; color:#f3ebe4; font-family:Arial,Helvetica,sans-serif; }
-    .stage { flex:0 0 auto; }
+    .stage { flex:0 0 auto; max-width:100%; }
     .site-skip { position:absolute; z-index:15; top:-100px; left:12px; background:#fff; color:#111; padding:10px 14px; }
     .site-skip:focus { top:12px; }
     .site-overview { width:100%; background:linear-gradient(180deg,#100607 0%,#180905 45%,#070708 100%); border-top:1px solid rgba(255,160,40,.45); }
@@ -144,7 +152,7 @@
       <a href="about/">About</a>
       <a href="privacy/">Privacy</a>
       <a href="terms/">Terms</a>
-      <a href="data-deletion/">Data Owner</a>
+      <a href="data-deletion/">Data Deletion</a>
     </nav>
 
     <!-- Cada tamaño de pantalla carga su propia imagen -->
@@ -189,7 +197,7 @@
       <nav class="site-links" aria-label="Políticas para revisión de TikTok">
         <a href="privacy/">Privacy Policy</a>
         <a href="terms/">Terms of Service</a>
-        <a href="data-deletion/">Data Owner</a>
+        <a href="data-deletion/">Data Deletion</a>
       </nav>
       <p><strong>Publishing &amp; data requests:</strong> <a href="mailto:asilvajasaui@gmail.com" style="color:#ffd18c">asilvajasaui@gmail.com</a></p>
     </div>
@@ -201,7 +209,7 @@
         <a href="about/">About</a>
         <a href="privacy/">Privacy Policy</a>
         <a href="terms/">Terms of Service</a>
-        <a href="data-deletion/">Data Owner</a>
+        <a href="data-deletion/">Data Deletion</a>
       </nav>
     </div>
   </footer>
